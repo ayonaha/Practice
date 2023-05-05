@@ -1,18 +1,11 @@
-from typing import Optional
+from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy.ext.declarative import declarative_base
 
-from pydantic import BaseModel
+Base = declarative_base()
 
+class Todo(Base):
+    __tablename__ = "todos"
 
-class Todo(BaseModel):
-    task: str
-#
-#
-# class TodoCreate(Todo):
-#     pass
-#
-#
-# class TodoUpdate(Todo):
-#     completed: Optional[bool] = False
-#
-#     class Config:
-#         orm_mode = True
+    id = Column(Integer, primary_key=True, index=True)
+    task = Column(String(255))
+    completed = Column(Boolean, default=False)
