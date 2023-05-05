@@ -9,9 +9,10 @@ def get_todos(db: Session):
 def create_todo(db: Session, task: str):
     db_todo = models.Todo(task=task)
     db.add(db_todo)
-    db.commit()
+    db.commit()  # ここでcommitする
     db.refresh(db_todo)
     return db_todo
+
 
 
 def get_todo_by_id(db: Session, todo_id: int):

@@ -7,7 +7,7 @@ def get_all_todos(db):
 
 
 def create_new_todo(db, task):
-    todos.create_todo(db, task)
+    return todos.create_todo(db, task)
 
 
 def get_todo_by_id(db, todo_id: int):
